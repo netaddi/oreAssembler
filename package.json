@@ -1,22 +1,22 @@
 {
-  "name": "electron-quick-start",
+  "name": "oreAssembler",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "A MIPS assembler",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/netaddi/oreAssembler",
   "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "MIPS",
+    "assembler"
   ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
+  "author": "netaddi",
+  "license": "",
   "devDependencies": {
     "electron": "^1.4.1"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.7"
   }
 }
