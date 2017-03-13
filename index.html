@@ -8,15 +8,45 @@
     </script> -->
     <link rel="stylesheet" href="./css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/menu.css">
   </head>
   <body>
-    <div class="container">
-      <h1>test</h1>
+  <!--<script type="text/javascript">-->
+    <!---->
+  <!--</script>-->
+  <!--<div id="nav" class="nav">-->
+    <!--<ul>-->
+      <!--<li><a href="#">File</a>-->
+        <!--<ul>-->
+          <!--<li><a href="#">New</a></li>-->
+          <!--<li><a href="#">Open</a></li>-->
+          <!--<li><a href="#">Save</a></li>-->
+          <!--<li><a href="#">Save As</a></li>-->
+          <!--<li><a href="#">Exit</a></li>-->
+        <!--</ul>-->
+      <!--</li>-->
+      <!--<li><a href="#">Help</a>-->
+        <!--<ul>-->
+          <!--<li><a href="#">About</a></li>-->
+        <!--</ul>-->
+      <!--</li>-->
+    <!--</ul>-->
+  <!--</div>-->
+
+  <div class="container">
+      <form>
+        <textarea name="message" id="assText" rows="32" cols="64">
+          The cat was playing in the garden.
+        </textarea>
+      </form>
     </div>
   </body>
 
-  <script>
+  <script type="text/javascript">
     // You can also require other files to run in this process
-    require('./renderer.js')
+    console.log(this);
+    require('./renderer.js');
+    document.getElementById('assText').innerHTML = '00';
+//    require('./lib/menu')
   </script>
 </html>

@@ -9,6 +9,11 @@ const BrowserWindow = electron.BrowserWindow
 const path = require('path')
 const url = require('url')
 
+const dialog = electron.dialog
+const {webContents} = require('electron')
+// const path = require('path')
+const ipc = require('electron').ipcMain
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
@@ -16,7 +21,7 @@ let mainWindow
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({width: 1280, height: 960})
-
+  // mainWindow.setMenu(null)
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),
@@ -25,7 +30,7 @@ function createWindow () {
   }))
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
@@ -61,7 +66,51 @@ app.on('activate', function () {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 
-let menuJs = require('./lib/menu');
+// let menuJs = require('./lib/menu');
 
-const menu = Menu.buildFromTemplate(menuJs.template)
+let template = [{
+  label: 'File',
+  submenu: [{
+    label: 'New',
+    accelerator: 'Ctrl+N'
+  }, {
+    label: 'Open',
+    accelerator: 'Ctrl+O',
+    click: function () {
+      dialog.showOpenDialog(function (fileNames) {
+        // fileNames is an array that contains all the selected
+        if(fileNames === undefined){
+          console.log("No file selected");
+        }else{
+          console.log(mainWindow.webContents.send)
+          mainWindow.webContents.send('info-1', fileNames[0])
+        }
+      });
+    }
+  }, {
+    label: 'Save',
+    accelerator: 'Ctrl+S'
+  }, {
+    label: 'Save As',
+    accelerator: 'Ctrl+Shift+S'
+  }, {
+    label: 'Exit'
+  }]
+}, {
+  label: 'Help',
+  role: 'help',
+  submenu: [{
+    label: 'About',
+    click: function () {
+      const modalPath = path.join('file://', __dirname, '../html/about.html')
+      let win = new BrowserWindow({ frame: false })
+      win.on('close', function () { win = null })
+      win.loadURL(modalPath)
+      win.show()
+    }
+  }]
+}]
+
+
+const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
