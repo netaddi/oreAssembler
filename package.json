@@ -17,6 +17,7 @@
     "electron": "^1.4.1"
   },
   "dependencies": {
-    "bootstrap": "^3.3.7"
+    "bootstrap": "^3.3.7",
+    "jQuery": "^1.7.4"
   }
 }

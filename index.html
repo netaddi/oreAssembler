@@ -3,50 +3,41 @@
   <head>
     <meta charset="UTF-8">
     <title>MIPS Assembler by netaddi</title>
-    <!-- <script>
-      require('bootstrap')
-    </script> -->
+    <!--<script>-->
+      <!--require('bootstrap')-->
+    <!--</script>-->
     <link rel="stylesheet" href="./css/font-awesome.min.css">
     <link rel="stylesheet" href="./css/bootstrap.css">
-    <link rel="stylesheet" href="./css/menu.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <script src="./js/highlight.js"></script>
+    <script src="./js/libmips.js"></script>
+    <script src="./js/ass.js"></script>
+    <script src="./js/deass.js"></script>
+    <!-- <link rel="stylesheet" href="./css/highlight_styles/default.css">
+    <script src="./js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script> -->
   </head>
   <body>
-  <!--<script type="text/javascript">-->
-    <!---->
-  <!--</script>-->
-  <!--<div id="nav" class="nav">-->
-    <!--<ul>-->
-      <!--<li><a href="#">File</a>-->
-        <!--<ul>-->
-          <!--<li><a href="#">New</a></li>-->
-          <!--<li><a href="#">Open</a></li>-->
-          <!--<li><a href="#">Save</a></li>-->
-          <!--<li><a href="#">Save As</a></li>-->
-          <!--<li><a href="#">Exit</a></li>-->
-        <!--</ul>-->
-      <!--</li>-->
-      <!--<li><a href="#">Help</a>-->
-        <!--<ul>-->
-          <!--<li><a href="#">About</a></li>-->
-        <!--</ul>-->
-      <!--</li>-->
-    <!--</ul>-->
-  <!--</div>-->
-
   <div class="container">
-      <form>
-        <textarea name="message" id="assText" rows="32" cols="64">
-          The cat was playing in the garden.
-        </textarea>
-      </form>
-    </div>
-  </body>
+    <h5 id="log"></h5>
+  </div>
+  <div class="container">
+    <form>
+      <div class="div-relative">
+        <div class="textDiv div-abs">
+          <textarea name="message" id="assText" rows="30" cols="64"></textarea>
+        </div>
+        <div id="">
+          <textarea name="message" id="binText" rows="30" cols="64"></textarea>
+        </div>
+      </div>
+    </form>
+  </div>
+  <a type="button" name="Assemble" class="btn btn-lg btn-primary" id="assembleBtn">Assemble</button>
+  <a type="button" name="Deassemble" class="btn btn-lg btn-primary" id="deassembleBtn">Deassemble</button>
+</body>
 
   <script type="text/javascript">
-    // You can also require other files to run in this process
-    console.log(this);
     require('./renderer.js');
-    document.getElementById('assText').innerHTML = '00';
-//    require('./lib/menu')
   </script>
 </html>
